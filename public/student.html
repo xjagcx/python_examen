@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examen de Python - Alumno</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero">
+        <div class="space-between">
+          <div>
+            <span class="badge">Vista del estudiante</span>
+            <h1 id="student-name">Cargando...</h1>
+            <p id="student-session" class="muted"></p>
+          </div>
+          <div>
+            <div id="status-pill" class="status waiting">Esperando</div>
+          </div>
+        </div>
+
+        <div class="grid grid-3" style="margin-top: 18px;">
+          <div class="metric">
+            <span>Tu calificación visible</span>
+            <strong id="student-grade">0 / 10</strong>
+          </div>
+          <div class="metric">
+            <span>Promedio grupal</span>
+            <strong id="group-grade">0 / 10</strong>
+          </div>
+          <div class="metric">
+            <span>Tiempo restante</span>
+            <strong id="timer" class="timer">--:--</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="waiting-card" class="card" style="margin-top: 18px;">
+        <h2>Espera la indicación del profesor</h2>
+        <p class="muted">
+          Cuando el profesor inicie, la pregunta aparecerá aquí. Mantén esta pantalla abierta.
+        </p>
+      </section>
+
+      <section id="question-card" class="card hidden" style="margin-top: 18px;">
+        <div class="space-between">
+          <div>
+            <h2 id="question-number">Pregunta</h2>
+            <p class="muted">Lee con calma y selecciona una sola opción.</p>
+          </div>
+          <div class="badge" id="answered-badge">Sin responder</div>
+        </div>
+
+        <div class="question-box">
+          <pre id="question-prompt" class="question-text"></pre>
+        </div>
+
+        <form id="answer-form" style="margin-top: 18px;">
+          <div id="options" class="options"></div>
+          <div class="actions" style="margin-top: 18px;">
+            <button id="submit-answer" type="submit">Enviar respuesta</button>
+          </div>
+        </form>
+        <p id="answer-message" class="muted"></p>
+      </section>
+
+      <section id="paused-card" class="card hidden" style="margin-top: 18px;">
+        <h2>Examen en pausa</h2>
+        <p class="muted">El profesor pausó temporalmente la sesión. Conserva esta ventana abierta.</p>
+      </section>
+
+      <section id="finished-card" class="card hidden" style="margin-top: 18px;">
+        <h2>Examen finalizado</h2>
+        <div class="notice success" style="margin-bottom: 18px;">
+          <strong>Resultado final</strong>
+          <p id="final-score-text" style="margin-bottom: 0;"></p>
+        </div>
+        <div class="actions">
+          <a id="pdf-link" href="#"><button type="button" class="success">Descargar PDF</button></a>
+          <button type="button" class="secondary" onclick="window.location.href='/'">Volver al inicio</button>
+        </div>
+      </section>
+
+      <footer>
+        Si pierdes conexión, la app intentará reconectar sola. Tus respuestas se guardan al enviarlas.
+      </footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/student.js"></script>
+  </body>
+</html>

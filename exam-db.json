@@ -1,0 +1,39 @@
+{
+  "settings": {
+    "active_session_id": "034f21bc-73f0-40df-b041-bddc3301febc"
+  },
+  "sessions": [
+    {
+      "id": "034f21bc-73f0-40df-b041-bddc3301febc",
+      "title": "Examen sincronizado de Python",
+      "status": "running",
+      "current_question_index": 1,
+      "question_started_at": 1776921539211,
+      "question_remaining_ms": 60000,
+      "question_duration_ms": 60000,
+      "started_at": "2026-04-23T05:18:52.669Z",
+      "ended_at": null,
+      "created_at": "2026-04-23T05:18:37.553Z",
+      "updated_at": "2026-04-23T05:18:59.211Z"
+    }
+  ],
+  "students": [
+    {
+      "id": "f99c614e-995a-44f0-815d-62537da3481c",
+      "session_id": "034f21bc-73f0-40df-b041-bddc3301febc",
+      "name": "Ana",
+      "joined_at": "2026-04-23T05:18:46.995Z"
+    }
+  ],
+  "responses": [
+    {
+      "id": "c7288597-f159-4bed-aba0-587184fddf7e",
+      "session_id": "034f21bc-73f0-40df-b041-bddc3301febc",
+      "student_id": "f99c614e-995a-44f0-815d-62537da3481c",
+      "question_index": 0,
+      "selected_option": 0,
+      "is_correct": 1,
+      "answered_at": "2026-04-23T05:18:57.709Z"
+    }
+  ]
+}

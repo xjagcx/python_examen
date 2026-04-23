@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: python-exam-sync-app
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.19.0
+      - key: TEACHER_PIN
+        sync: false
+      - key: QUESTION_DURATION_SECONDS
+        value: 60
+      - key: AUTO_ADVANCE_WHEN_ALL_ANSWERED
+        value: true
+      - key: SHOW_LIVE_SCORE_DURING_QUESTION
+        value: false

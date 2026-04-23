@@ -1,0 +1,15 @@
+{
+  "name": "python-exam-sync-app",
+  "version": "1.0.0",
+  "description": "Aplicacion web sincronizada para examen de Python con panel de profesor, PDF y exportacion CSV.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pdfkit": "^0.17.1",
+    "socket.io": "^4.8.1"
+  }
+}

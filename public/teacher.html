@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel del profesor</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero">
+        <div class="space-between">
+          <div>
+            <span class="badge">Panel del profesor</span>
+            <h1>Control del examen sincronizado</h1>
+            <p id="session-meta" class="muted">Cargando sesión...</p>
+          </div>
+          <div>
+            <div id="teacher-status" class="status waiting">Esperando</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 18px;">
+          <div class="row">
+            <div style="flex: 1 1 220px;">
+              <label for="teacher-pin">PIN del profesor</label>
+              <input id="teacher-pin" type="password" placeholder="1234" />
+            </div>
+            <div style="display: flex; align-items: end;">
+              <button id="save-pin" type="button">Guardar PIN</button>
+            </div>
+          </div>
+          <p id="teacher-message" class="muted"></p>
+        </div>
+
+        <div class="grid grid-3" style="margin-top: 18px;">
+          <div class="metric">
+            <span>Estudiantes conectados</span>
+            <strong id="metric-students">0</strong>
+          </div>
+          <div class="metric">
+            <span>Promedio visible</span>
+            <strong id="metric-average">0 / 10</strong>
+          </div>
+          <div class="metric">
+            <span>Tiempo restante</span>
+            <strong id="metric-timer" class="timer">--:--</strong>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top: 18px;">
+          <button id="btn-start" class="success">Iniciar / Reanudar</button>
+          <button id="btn-pause" class="warning">Pausar</button>
+          <button id="btn-next">Siguiente pregunta</button>
+          <button id="btn-reset" class="danger">Reiniciar sesión</button>
+          <button id="btn-csv" class="secondary">Exportar CSV</button>
+        </div>
+      </section>
+
+      <section class="grid grid-2" style="margin-top: 18px; align-items: start;">
+        <div class="card">
+          <h2>Pregunta actual</h2>
+          <p id="current-question-label" class="muted">Aún no inicia.</p>
+          <div id="current-question-box" class="question-box hidden">
+            <pre id="current-question-text" class="question-text"></pre>
+          </div>
+          <div class="grid grid-3" style="margin-top: 16px;">
+            <div class="metric">
+              <span>Respondieron</span>
+              <strong id="metric-answered">0</strong>
+            </div>
+            <div class="metric">
+              <span>Aciertos</span>
+              <strong id="metric-correct">0</strong>
+            </div>
+            <div class="metric">
+              <span>Autoavance</span>
+              <strong id="metric-autoadvance">Sí</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Configuración visible</h2>
+          <ul id="config-list">
+            <li>Duración por pregunta: 60 segundos</li>
+            <li>Calificación final: aciertos / 40 × 10</li>
+            <li>PDF individual al finalizar</li>
+            <li>CSV exportable para el profesor</li>
+          </ul>
+          <div class="notice warning">
+            <strong>Recomendación</strong>
+            <p style="margin-bottom: 0;">
+              El marcador visible puede mostrarse solo al cerrar cada pregunta para evitar filtraciones entre alumnos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="table-wrap" style="margin-top: 18px;">
+        <h2>Seguimiento de estudiantes</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Estudiante</th>
+              <th>Estado pregunta actual</th>
+              <th>Aciertos visibles</th>
+              <th>Calificación visible</th>
+              <th>Aciertos finales</th>
+              <th>Calificación final</th>
+            </tr>
+          </thead>
+          <tbody id="students-body"></tbody>
+        </table>
+      </section>
+
+      <footer>Este panel recibe actualizaciones en tiempo real mediante Socket.IO.</footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/teacher.js"></script>
+  </body>
+</html>
